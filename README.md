@@ -23,18 +23,21 @@ A simple web-based application for detecting LLM-generated text. The system uses
 > [!WARNING]
 > Ensure that Git and Python are installed in your computer.
 
+> [!WARNING]
+> Ensure that you have self-trained BERT model in the [model](model) directory. If not, you can use the Logistic Regression model instead by changing the `load_model(1)` to `load_model(0)` in [app.py](app.py).
+
 1. Clone this repository using the command `git clone https://github.com/Mindkerchief/Essai-Detect.git`.
 2. Go to directory using `cd Essai-Detect`.
 3. Install dependencies using `pip install -r requirements.txt`
-4. Ensure that you have own self-trained BERT model in the `model` directory. If not, you can use the Logistic Regression model instead by changing the `load_model(1)` to `load_model(0)` in [app.py](app.py).
-5. Run the Flask application using `python app.py`.
-6. Open the web app in the browser using `http://127.0.0.1:5000`.
+4. Run the Flask application using `python app.py`.
+5. Open the web app in the browser using `http://127.0.0.1:5000`.
 
 ## License
 This project is licensed under the <licence-name> License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 - **[LLM - Detect AI Generated Text Dataset][kaggle-dataset]**: For LLM-generated and Human-written dataset.
+- **[Phosphor Icons][phosphor-icons]**: For icon libraries.
 
 <!-- Reference -->
 [app-badge]: https://img.shields.io/badge/WebApp-LLM_Generated_Text_Detector-FFFFFF
@@ -42,3 +45,4 @@ This project is licensed under the <licence-name> License - see the [LICENSE](LI
 [output]: https://github.com/Mindkerchief/Essai-Detect/blob/main/docs/images/output.png
 
 [kaggle-dataset]: https://www.kaggle.com/datasets/sunilthite/llm-detect-ai-generated-text-dataset
+[phosphor-icons]: https://github.com/phosphor-icons/homepage
