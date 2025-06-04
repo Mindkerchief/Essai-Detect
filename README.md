@@ -33,7 +33,7 @@ A simple web-based application for detecting LLM-generated text. The system uses
 5. Open the web app in the browser using `http://127.0.0.1:5000`.
 
 ## License
-This project is licensed under the <licence-name> License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 - **[LLM - Detect AI Generated Text Dataset][kaggle-dataset]**: For LLM-generated and Human-written dataset.
