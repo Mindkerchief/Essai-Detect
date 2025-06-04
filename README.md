@@ -21,7 +21,7 @@ A simple web-based application for detecting LLM-generated text. The system uses
 
 ## Installation
 > [!WARNING]
-> Ensure that Git and Python are installed in your computer.
+> Ensure that **[Git][git-download]** and **[Python][python-download]** are installed in your computer.
 
 > [!WARNING]
 > Ensure that you have self-trained BERT model in the [model](model) directory. If not, you can use the Logistic Regression model instead by changing the `load_model(1)` to `load_model(0)` in [app.py](app.py).
@@ -37,7 +37,7 @@ This project is licensed under the <licence-name> License - see the [LICENSE](LI
 
 ## Acknowledgments
 - **[LLM - Detect AI Generated Text Dataset][kaggle-dataset]**: For LLM-generated and Human-written dataset.
-- **[Phosphor Icons][phosphor-icons]**: For icon libraries.
+- **[Phosphor Icons][phosphor-icons]**: For icon library.
 
 <!-- Reference -->
 [app-badge]: https://img.shields.io/badge/WebApp-LLM_Generated_Text_Detector-FFFFFF
@@ -46,3 +46,6 @@ This project is licensed under the <licence-name> License - see the [LICENSE](LI
 
 [kaggle-dataset]: https://www.kaggle.com/datasets/sunilthite/llm-detect-ai-generated-text-dataset
 [phosphor-icons]: https://github.com/phosphor-icons/homepage
+
+[git-download]: https://git-scm.com/downloads
+[python-download]: https://www.python.org/downloads/
