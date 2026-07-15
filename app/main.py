@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 
 import joblib
+from sklearn.feature_extraction.text import TfidfVectorizer
 from flask import Flask, request, jsonify, render_template
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
