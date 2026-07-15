@@ -86,5 +86,5 @@ def analyze_text():
     })
 
 if __name__ == '__main__':
-    load_model(1) # Change the number to switch models
+    load_model(0) # Change the number to switch models
     app.run()
