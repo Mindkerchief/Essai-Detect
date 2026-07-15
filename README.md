@@ -1,5 +1,5 @@
-# Essai Detect ![app badge][app-badge]
-A simple web-based application for detecting LLM-generated text. The system uses BERT model for predictions.
+# <img src="https://github.com/Mindkerchief/Essai-Detect/blob/8a01c005385ddd5ccff24f9164f2869ec14b8f5c/app/static/images/icon.png" width="28" alt="Logo Thumbnail"> Essai Detect ![essai badge][essai-badge]
+A simple Windows application for detecting LLM-generated text. The system uses either BERT and logistic regression model for predictions. Input the text in a chat like UI and get the result response along with the model confidence.
 
 ## Table of Contents
 - [Features](#features)
@@ -9,28 +9,19 @@ A simple web-based application for detecting LLM-generated text. The system uses
 - [Acknowledgments](#acknowledgments)
 
 ## Features
-![output][output]
+<img src="https://github.com/Mindkerchief/Essai-Detect/blob/8a01c005385ddd5ccff24f9164f2869ec14b8f5c/docs/images/output.png" width="720" alt="chat output">
+
 - **Message Box** - Input text for LLM-generated or Human-written text classification.
-- **Chat History** - Displays recent text input and result.
+- **Chat History** - Displays text input history, model response and confidence level.
 
 ## Usage
 1. Input text to be analyze in the **Message Box**.
-2. Pressing the **Send** button or **Enter Key** in the keyboard, will trigger prediction.
+2. Pressing the **Send** button or **Enter Key** in the keyboard, will feed it to the model.
 3. Text must be **more than 100 words** to maintain a more accurate prediction.
-4. Reloading the page will cause the Chat History to be reset.
+4. Reloading the UI will cause the Chat History to be reset.
 
 ## Installation
-> [!WARNING]
-> Ensure that **[Git][git-download]** and **[Python][python-download]** are installed in your computer.
-
-> [!WARNING]
-> Ensure that you have self-trained BERT model in the [model](model) directory. If not, you can use the Logistic Regression model instead by changing the `load_model(1)` to `load_model(0)` in [app.py](app.py).
-
-1. Clone this repository using the command `git clone https://github.com/Mindkerchief/Essai-Detect.git`.
-2. Go to directory using `cd Essai-Detect`.
-3. Install dependencies using `pip install -r requirements.txt`
-4. Run the Flask application using `python app.py`.
-5. Open the web app in the browser using `http://127.0.0.1:5000`.
+1. Download and install the latest version of [Essai Detect][release-page].
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -38,14 +29,36 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgments
 - **[LLM - Detect AI Generated Text Dataset][kaggle-dataset]**: For LLM-generated and Human-written dataset.
 - **[Phosphor Icons][phosphor-icons]**: For icon library.
+- **[Flask CORS][flask-cors]**: For handling resource sharing between Python and JavaScript.
+- **[Waitress][waitress]**: For production-ready WSGI server.
+- **[PyWebview][pywebview]**: For standalone web app wrapper.
+- **[PyInstaller][pyinstaller]**: For building the app into executables.
+- **[Inno Setup][inno-setup]**: For installer.
+- **[Scikit-learn][scikit-learn]**: For machine learning and statistical modeling.
+- **[Joblib][joblib]**: For saving and loading trained machine learning models.
+- **[Torch][torch]**: For deep learning framework and prediction.
+- **[Transformers][transformers]**: For utilizing pre-trained Bert model.
+- **[Safetensors][safetensors]**: For saving and loading of deep learning model weights.
+- **[Numpy][numpy]**: For handling different types of arrays.
+- **[Pandas][pandas]**: For data manipulation and analysis of Excel data.
 
 <!-- Reference -->
-[app-badge]: https://img.shields.io/badge/WebApp-LLM_Generated_Text_Detector-FFFFFF
+[essai-badge]: https://img.shields.io/badge/Windows-LLM_Generated_Text_Detector-FFFFFF
 
-[output]: https://github.com/Mindkerchief/Essai-Detect/blob/main/docs/images/output.png
+[output]: https://github.com/Mindkerchief/Essai-Detect/blob/8a01c005385ddd5ccff24f9164f2869ec14b8f5c/docs/images/output.png
 
+[release-page]: https://github.com/Mindkerchief/Essai-Detect/releases
 [kaggle-dataset]: https://www.kaggle.com/datasets/sunilthite/llm-detect-ai-generated-text-dataset
 [phosphor-icons]: https://github.com/phosphor-icons/homepage
-
-[git-download]: https://git-scm.com/downloads
-[python-download]: https://www.python.org/downloads/
+[flask-cors]: https://pypi.org/project/flask-cors/
+[waitress]: https://pypi.org/project/waitress/
+[pywebview]: https://pypi.org/project/pywebview/
+[pyinstaller]: https://pypi.org/project/pyinstaller/
+[inno-setup]: https://jrsoftware.org/ishelp/
+[scikit-learn]: https://pypi.org/project/scikit-learn/
+[joblib]: https://joblib.readthedocs.io/en/stable/
+[torch]: https://pypi.org/project/torch/
+[transformers]: https://pypi.org/project/transformers/
+[safetensors]: https://pypi.org/project/safetensors/
+[numpy]: https://pypi.org/project/numpy/
+[pandas]: https://pypi.org/project/pandas/
