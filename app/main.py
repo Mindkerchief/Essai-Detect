@@ -1,13 +1,14 @@
-import joblib
 import os
-from flask import Flask, request, jsonify, send_from_directory
-from flask_cors import CORS
+from pathlib import Path
+
+import joblib
+from flask import Flask, request, jsonify, render_template
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
 
-app = Flask(__name__)
-CORS(app)
 
+BASE_DIR: Path = Path(__file__).resolve().parent.parent
+MODEL_DIR: Path = os.path.join(BASE_DIR, 'app', 'model')
 bert_model = None
 bert_tokenizer = None
 logreg_model = None
@@ -15,25 +16,21 @@ logreg_vectorizer = None
 model_mode = -1 # 1 = BERT, 0 = Logistic Regression
 id2label = {0: "Human-Written", 1: "LLM-Generated"}
 
-@app.route('/')
-def serve_index():
-    return send_from_directory('.', 'index.html')
-
 def load_bert_model():
     global bert_model, bert_tokenizer, model_mode
-    if not os.path.exists('model/bert'):
+    if not os.path.exists(MODEL_DIR):
         raise FileNotFoundError("BERT model files not found.")
-    bert_tokenizer = AutoTokenizer.from_pretrained('model/bert')
-    bert_model = AutoModelForSequenceClassification.from_pretrained('model/bert', trust_remote_code=True)
+    bert_tokenizer = AutoTokenizer.from_pretrained(MODEL_DIR)
+    bert_model = AutoModelForSequenceClassification.from_pretrained(MODEL_DIR, trust_remote_code=True)
     bert_model.eval()
     model_mode = 1
 
 def load_logreg_model():
-    if not os.path.exists('model/tfidf.pkl') or not os.path.exists('model/logreg.pkl'):
+    if not os.path.exists(MODEL_DIR):
         raise FileNotFoundError("Logistic Regression model files not found.")
     global logreg_model, logreg_vectorizer, model_mode
-    logreg_vectorizer = joblib.load('model/tfidf.pkl')
-    logreg_model = joblib.load('model/logreg.pkl')
+    logreg_vectorizer = joblib.load(os.path.join(MODEL_DIR, 'tfidf.pkl'))
+    logreg_model = joblib.load(os.path.join(MODEL_DIR, 'logreg.pkl'))
     model_mode = 0
 
 def predict_logreg(text):
@@ -72,19 +69,34 @@ def predict(text):
     else:
         raise ValueError("Model is missing.")
 
-@app.route('/analyze', methods=['POST'])
-def analyze_text():
-    data = request.get_json()
-    text = data.get("text", "")
+def create_api_routes(app):
+    """Create and register all API routes with the Flask app"""
 
-    pred, confidence = predict(text)
-    label = id2label[pred]
-    
-    return jsonify({
-        "prediction": label,
-        'confidence': f'{confidence:.2f}'
-    })
+    @app.route('/')
+    def index():
+        return render_template('index.html')
 
-if __name__ == '__main__':
+    @app.route('/analyze', methods=['POST'])
+    def analyze_text():
+        data = request.get_json()
+        text = data.get("text", "")
+
+        pred, confidence = predict(text)
+        label = id2label[pred]
+        
+        return jsonify({
+            "prediction": label,
+            'confidence': f'{confidence:.2f}'
+        })
+
+def create_app():
+    """Create and configure the Flask application"""
+    app = Flask(
+        __name__,
+        static_folder=str(os.path.join(BASE_DIR, 'app', 'static')),
+        template_folder=str(os.path.join(BASE_DIR, 'app', 'templates'))
+    )
+
+    create_api_routes(app)
     load_model(0) # Change the number to switch models
-    app.run()
+    return app
