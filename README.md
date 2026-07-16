@@ -43,7 +43,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **[Pandas][pandas]**: For data manipulation and analysis of Excel data.
 
 <!-- Reference -->
-[essai-badge]: https://img.shields.io/badge/Windows-LLM_Generated_Text_Detector-FFFFFF
+[essai-badge]: https://img.shields.io/badge/Windows-LLM_Generated_Text_Detector-2563EB
 
 [output]: https://github.com/Mindkerchief/Essai-Detect/blob/8a01c005385ddd5ccff24f9164f2869ec14b8f5c/docs/images/output.png
 
