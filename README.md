@@ -1,5 +1,5 @@
 # <img src="https://github.com/Mindkerchief/Essai-Detect/blob/8a01c005385ddd5ccff24f9164f2869ec14b8f5c/app/static/images/icon.png" width="28" alt="Logo Thumbnail"> Essai Detect ![essai badge][essai-badge]
-A simple Windows application for detecting LLM-generated text. The system uses either BERT and logistic regression model for predictions. Input the text in a chat like UI and get the result response along with the model confidence.
+A simple Windows application for detecting LLM-generated text in essays. The system uses either BERT and logistic regression model for predictions. Input the text in a chat like UI and get the result as response along with the model confidence.
 
 ## Table of Contents
 - [Features](#features)
@@ -15,10 +15,10 @@ A simple Windows application for detecting LLM-generated text. The system uses e
 - **Chat History** - Displays text input history, model response and confidence level.
 
 ## Usage
-1. Input text to be analyze in the **Message Box**.
-2. Pressing the **Send** button or **Enter Key** in the keyboard, will feed it to the model.
-3. Text must be **more than 100 words** to maintain a more accurate prediction.
-4. Reloading the UI will cause the Chat History to be reset.
+1. Input text to be analyze in the `Message Box`.
+2. Pressing the `Send` button or `Enter Key` in the keyboard, will feed it to the model.
+3. Text must be more than `100 words` to maintain a more accurate prediction.
+4. Reloading the UI will cause the chat history to be reset.
 
 ## Installation
 1. Download and install the latest version of [Essai Detect][release-page].
@@ -29,6 +29,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgments
 - **[LLM - Detect AI Generated Text Dataset][kaggle-dataset]**: For LLM-generated and Human-written dataset.
 - **[Phosphor Icons][phosphor-icons]**: For icon library.
+- **[uv][uv]**: For Python dependencies manager and virtual environment.
 - **[Flask CORS][flask-cors]**: For handling resource sharing between Python and JavaScript.
 - **[Waitress][waitress]**: For production-ready WSGI server.
 - **[PyWebview][pywebview]**: For standalone web app wrapper.
@@ -50,6 +51,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 [release-page]: https://github.com/Mindkerchief/Essai-Detect/releases
 [kaggle-dataset]: https://www.kaggle.com/datasets/sunilthite/llm-detect-ai-generated-text-dataset
 [phosphor-icons]: https://github.com/phosphor-icons/homepage
+[uv]: https://pypi.org/project/uv/
 [flask-cors]: https://pypi.org/project/flask-cors/
 [waitress]: https://pypi.org/project/waitress/
 [pywebview]: https://pypi.org/project/pywebview/
